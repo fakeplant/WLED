@@ -1,0 +1,8 @@
+//
+// Created by Eli McNutt on 8/13/22.
+//
+
+#ifndef WLED_USERMOD_V2_DISABLE_LEDS_H
+#define WLED_USERMOD_V2_DISABLE_LEDS_H
+
+#endif //WLED_USERMOD_V2_DISABLE_LEDS_H
