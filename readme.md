@@ -1,3 +1,20 @@
+# SIGN PREP
+
+**Compile and Upload**
+1. Go to [http://sign.local](http://sign.local/settings/sec?) and save config/preset backups
+1. Compile new code via Platform IO in CLion
+1. Go to project and start shell `cd projects/WLED` && `pipenv shell`
+1. Erase flash `esptool.py erase_flash`
+1. Burn bootloader `esptool.py write_flash 0x0 bootloader/esp32_bootloader_v4.bin`
+1. Burn binary `esptool.py write_flash 0x10000 build_output/firmware/soundReactive_esp32dev.bin`
+
+**LED map**
+1. Latest map in google sheets
+1. Stored in `leds/floasis.json`
+1. Go to `http://sign.local/edit` and create a new file called `ledmap.json`. Copy file from above and save.
+---
+
+
 <p align="center">
   <img src="/images/wled_logo_akemi.png">
   <a href="https://github.com/atuline/WLED/releases"><img src="https://img.shields.io/github/release/atuline/WLED.svg?style=flat-square"></a>

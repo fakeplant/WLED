@@ -28,4 +28,5 @@ void registerUsermods()
 #endif
 
   //usermods.add(new UsermodRenameMe());
+  usermods.add(new DisableHangingLEDs());
 }

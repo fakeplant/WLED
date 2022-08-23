@@ -120,7 +120,7 @@
 #define IS_REVERSE      ((SEGMENT.options & REVERSE     ) == REVERSE     )
 #define IS_SELECTED     ((SEGMENT.options & SELECTED    ) == SELECTED    )
 
-#define MODE_COUNT 188// WLEDSR: First 128 for AC (incl reserved), rest for SR
+#define MODE_COUNT 190// WLEDSR: First 128 for AC (incl reserved), rest for SR
 
 #define FX_MODE_STATIC                   0
 #define FX_MODE_BLINK                    1
@@ -318,6 +318,9 @@
 #define FX_MODE_ROCKTAVES              185
 #define FX_MODE_2DAKEMI                186
 #define FX_MODE_CUSTOMEFFECT           187 //WLEDSR Custom Effects
+#define FX_MODE_2DDEBUGX               188
+#define FX_MODE_2DDEBUGY               189
+
 
 #define floatNull -32768 //WLEDSR Custom Effects
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -705,6 +708,8 @@ class WS2812FX {
       _mode[FX_MODE_TV_SIMULATOR]            = &WS2812FX::mode_tv_simulator;
       _mode[FX_MODE_DYNAMIC_SMOOTH]          = &WS2812FX::mode_dynamic_smooth;
 
+
+
 // Technical notes
 // ===============
 // Defines which effects are incuded in the build. Currently only WLEDSR_LARGE used.
@@ -789,6 +794,8 @@ class WS2812FX {
       _mode[FX_MODE_ROCKTAVES]               = &WS2812FX::mode_rocktaves;
       _mode[FX_MODE_2DAKEMI]                 = &WS2812FX::mode_2DAkemi;
       _mode[FX_MODE_CUSTOMEFFECT]            = &WS2812FX::mode_customEffect; //WLEDSR Custom Effects
+      _mode[FX_MODE_2DDEBUGX]                = &WS2812FX::mode_2DDebugX;
+      _mode[FX_MODE_2DDEBUGY]                = &WS2812FX::mode_2DDebugY;
 
 #ifdef WLEDSR_LARGE
     // _mode[FX_MODE_2DPOOLNOISE]              = &WS2812FX::mode_2DPoolnoise; //code not in fx.cpp
@@ -1134,10 +1141,10 @@ class WS2812FX {
       mode_2DDrift(void),
       mode_2DColoredBursts(void),
       mode_2DJulia(void),
+      mode_2DDebugX(void),
+      mode_2DDebugY(void),
       mode_customEffect(void);     //WLEDSR Custom Effects
-    //  mode_2DPoolnoise(void),
-    //  mode_2DTwister(void);
-    //  mode_2DCAElementary(void);
+
 
     uint16_t
       GEQ_base(bool, bool, bool); //private???
@@ -1450,7 +1457,7 @@ const char JSON_mode_names[] PROGMEM = R"=====([
 "2D Game Of Life@!,Use Palette ☑;!,!;!",
 "2D Tartan@X scale,Y scale;;!",
 "2D Polar Lights@Speed,X scale,Palette;;",
-" ♪ 2D Swirl@!,Sensitivity=64,Blur;,Bg Swirl;!",
+" ♪ 2D Swirl@!,Sensitivit y=64,Blur;,Bg Swirl;!",
 "2D Lissajous@X frequency,Fadetime;;!",
 "2D Frizzles@X frequency,Y frequency;;!",
 "2D Plasma Ball@Speed;;!",
@@ -1462,7 +1469,9 @@ const char JSON_mode_names[] PROGMEM = R"=====([
 "Wavesins@Speed,Brightness variation,Starting Color,Range of Colors,Color variation;;!",
 " ♫ Rocktaves@;,!;!",
 " ♫ 2D Akemi@Color speed,Dance ☑;Head palette,Arms & Legs,Eyes & Mouth;Face palette",
-" ⚙️ Custom Effect@Speed,Intensity,Custom 1, Custom 2, Custom 3;!;!"
+" ⚙️ Custom Effect@Speed,Intensity,Custom 1, Custom 2, Custom 3;!;!",
+"⚙ 2D DEBUG X",
+"⚙ 2D DEBUG Y"
 ])=====";
 
 //WLEDSR: second part (not SR specific, but in latest SR, not in AC (Pallettes added in WLEDSR from Retro Clown->END))
