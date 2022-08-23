@@ -5529,9 +5529,42 @@ uint16_t WS2812FX::mode_2DWaverly(void) {                                       
 
 
 
+/////////////////////////
+//    * 2D DEBUG X     //
+/////////////////////////
+
+uint16_t WS2812FX::mode_2DDebugX(void) {
+    fadeToBlackBy(leds, SEGMENT.speed);
+    for (uint16_t i = 0; i < SEGMENT.height; i++) {
+        for (uint16_t j = 0; j < SEGMENT.width; j++) {
+            leds[XY(j, i)] += CHSV((80*i),255,255);
+        }
+    }
+    setPixels(leds);
+    return FRAMETIME;
+} // mode_2DDebugX()
+
+
+/////////////////////////
+//    * 2D DEBUG Y     //
+/////////////////////////
+
+uint16_t WS2812FX::mode_2DDebugY(void) {
+    fadeToBlackBy(leds, SEGMENT.speed);
+    for (uint16_t i = 0; i < SEGMENT.height; i++) {
+        for (uint16_t j = 0; j < SEGMENT.width; j++) {
+            leds[XY(j, i)] += CHSV((80*j),255,255);
+        }
+    }
+    setPixels(leds);
+    return FRAMETIME;
+} // mode_2DDebugY()
+
+
 ////////////////////////////////
 //   Begin volume routines    //
 ////////////////////////////////
+
 
 ///////////////////////
 //   * GRAVCENTER    //
