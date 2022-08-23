@@ -5534,14 +5534,14 @@ uint16_t WS2812FX::mode_2DWaverly(void) {                                       
 /////////////////////////
 
 uint16_t WS2812FX::mode_2DDebugX(void) {
-    fadeToBlackBy(leds, SEGMENT.speed);
-    for (uint16_t i = 0; i < SEGMENT.height; i++) {
-        for (uint16_t j = 0; j < SEGMENT.width; j++) {
-            leds[XY(j, i)] += CHSV((80*i),255,255);
-        }
+  fadeToBlackBy(leds, SEGMENT.speed);
+  for (uint16_t i = 0; i < SEGMENT.height; i++) {
+    for (uint16_t j = 0; j < SEGMENT.width; j++) {
+      leds[XY(j, i)] += CHSV((80*i),255,255);
     }
-    setPixels(leds);
-    return FRAMETIME;
+  }
+  setPixels(leds);
+  return FRAMETIME;
 } // mode_2DDebugX()
 
 
@@ -5550,14 +5550,14 @@ uint16_t WS2812FX::mode_2DDebugX(void) {
 /////////////////////////
 
 uint16_t WS2812FX::mode_2DDebugY(void) {
-    fadeToBlackBy(leds, SEGMENT.speed);
-    for (uint16_t i = 0; i < SEGMENT.height; i++) {
-        for (uint16_t j = 0; j < SEGMENT.width; j++) {
-            leds[XY(j, i)] += CHSV((80*j),255,255);
-        }
+  fadeToBlackBy(leds, SEGMENT.speed);
+  for (uint16_t i = 0; i < SEGMENT.height; i++) {
+    for (uint16_t j = 0; j < SEGMENT.width; j++) {
+      leds[XY(j, i)] += CHSV((80*j),255,255);
     }
-    setPixels(leds);
-    return FRAMETIME;
+  }
+  setPixels(leds);
+  return FRAMETIME;
 } // mode_2DDebugY()
 
 

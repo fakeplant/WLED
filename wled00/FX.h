@@ -793,8 +793,8 @@ class WS2812FX {
       _mode[FX_MODE_ROCKTAVES]               = &WS2812FX::mode_rocktaves;
       _mode[FX_MODE_2DAKEMI]                 = &WS2812FX::mode_2DAkemi;
       _mode[FX_MODE_CUSTOMEFFECT]            = &WS2812FX::mode_customEffect; //WLEDSR Custom Effects
-      _mode[FX_MODE_2DDEBUGX]                = &WS2812FX::mode_2DDebugX; //WLEDSR Custom Effects
-      _mode[FX_MODE_2DDEBUGY]                = &WS2812FX::mode_2DDebugY; //WLEDSR Custom Effects
+      _mode[FX_MODE_2DDEBUGX]                = &WS2812FX::mode_2DDebugX; 
+      _mode[FX_MODE_2DDEBUGY]                = &WS2812FX::mode_2DDebugY; 
       
 
 #ifdef WLEDSR_LARGE
@@ -1141,15 +1141,9 @@ class WS2812FX {
       mode_2DDrift(void),
       mode_2DColoredBursts(void),
       mode_2DJulia(void),
-      
+      mode_customEffect(void),
       mode_2DDebugX(void),
-      mode_2DDebugY(void),
-      
-      mode_customEffect(void);     //WLEDSR Custom Effects
-      
-    //  mode_2DPoolnoise(void),
-    //  mode_2DTwister(void);
-    //  mode_2DCAElementary(void);
+      mode_2DDebugY(void);
 
     uint16_t
       GEQ_base(bool, bool, bool); //private???
